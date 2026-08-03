@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sênior Seguro - Guia de Segurança e Direitos Digitais</title>
+    <style>
+        /* ==========================================================
+           VARIÁVEIS DE ESTILO (FACILITA TROCA DE CORES E FONTES)
+           ========================================================== */
+        :root {
+            --cor-primaria: #1b4965;
+            --cor-secundaria: #62b6cb;
+            --cor-fundo: #f8f9fa;
+            --cor-cartao: #ffffff;
+            --cor-texto: #2b2d42;
+            --cor-destaque: #d90429;
+            --cor-sucesso: #2a9d8f;
+            --cor-alerta: #e76f51;
+            --tamanho-fonte: 18px; /* Fonte maior para facilitar a leitura do público idoso */
+            --largura-maxima: 1100px;
+        }
+
+        /* Modo Alto Contraste */
+        body.modo-alto-contraste {
+            --cor-primaria: #ffff00;
+            --cor-secundaria: #00ffff;
+            --cor-fundo: #000000;
+            --cor-cartao: #121212;
+            --cor-texto: #ffffff;
+            --cor-destaque: #ff5555;
+            --cor-sucesso: #55ff55;
+            --cor-alerta: #ffaa00;
+        }
+
+        /* ==========================================================
+           ESTILOS GERAIS DA PÁGINA
+           ========================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-size: var(--tamanho-fonte);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: var(--largura-maxima);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================================
+           BARRA DE ACESSIBILIDADE FIXA
+           ========================================================== */
+        .barra-acessibilidade {
+            background-color: var(--cor-primaria);
+            color: #ffffff;
+            padding: 10px 0;
+            border-bottom: 2px solid var(--cor-secundaria);
+        }
+
+        .barra-acessibilidade .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .controles-acessibilidade {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .botao-acessibilidade {
+            background-color: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .botao-acessibilidade:hover, .botao-acessibilidade:focus {
+            background-color: var(--cor-secundaria);
+            color: #000000;
+            outline: 3px solid #ffff00;
+        }
+
+        /* ==========================================================
+           CABEÇALHO E MENU DE NAVEGAÇÃO
+           ========================================================== */
+        .cabecalho-principal {
+            background-color: var(--cor-cartao);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .cabecalho-conteudo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logotipo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--cor-primaria);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        body.modo-alto-contraste .logotipo {
+            color: var(--cor-primaria);
+        }
+
+        .menu-navegacao ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .menu-navegacao a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .menu-navegacao a:hover, .menu-navegacao a:focus {
+            background-color: var(--cor-secundaria);
+            color: #000000;
+        }
+
+        /* ==========================================================
+           BANNER INICIAL DE BOAS-VINDAS
+           ========================================================== */
+        .banner-boas-vindas {
+            background: linear-gradient(135deg, var(--cor-primaria), #0d2538);
+            color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        body.modo-alto-contraste .banner-boas-vindas {
+            background: var(--cor-cartao);
+            border: 3px solid var(--cor-primaria);
+            color: var(--cor-texto);
+        }
+
+        .banner-boas-vindas h1 {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+
+        .banner-boas-vindas p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+        }
+
+        .botoes-acao {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .botao-destaque {
+            background-color: var(--cor-secundaria);
+            color: #000000;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .botao-destaque:hover {
+            filter: brightness(1.1);
+        }
+
+        /* ==========================================================
+           SEÇÕES DE CONTEÚDO E CARTÕES
+           ========================================================== */
+        .secao-conteudo {
+            padding: 40px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .titulo-secao {
+            font-size: 1.9rem;
+            color: var(--cor-primaria);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 3px solid var(--cor-secundaria);
+            padding-bottom: 8px;
+        }
+
+        body.modo-alto-contraste .titulo-secao {
+            color: var(--cor-primaria);
+        }
+
+        .grade-cartoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .cartao {
+            background-color: var(--cor-cartao);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        body.modo-alto-contraste .cartao {
+            border: 2px solid var(--cor-texto);
+        }
+
+        .cartao-alerta {
+            border-top: 6px solid var(--cor-destaque);
+        }
+
+        .cartao-direito {
+            border-top: 6px solid var(--cor-sucesso);
+        }
+
+        .cartao-dica {
+            border-top: 6px solid var(--cor-secundaria);
+        }
+
+        .cartao h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--cor-primaria);
+        }
+
+        body.modo-alto-contraste .cartao h3 {
+            color: var(--cor-primaria);
+        }
+
+        .tag-alerta {
+            background-color: #fee2e2;
+            color: #991b1b;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        body.modo-alto-contraste .tag-alerta {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        /* ==========================================================
+           LISTA DE CHECKLIST DO DIA A DIA
+           ========================================================== */
+        .caixa-checklist {
+            background-color: var(--cor-cartao);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        .item-checklist {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-checklist input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            margin-top: 3px;
+        }
+
+        .texto-checklist h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        /* ==========================================================
+           QUIZ INTERATIVO (TESTE SEUS CONHECIMENTOS)
+           ========================================================== */
+        .caixa-quiz {
+            background-color: var(--cor-cartao);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        .opcao-quiz {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            border: 2px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .opcao-quiz:hover {
+            border-color: var(--cor-secundaria);
+        }
+
+        .mensagem-resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .resultado-correto {
+            background-color: #d1e7dd;
+            color: #0f5132;
+            border: 1px solid #badbcc;
+        }
+
+        .resultado-incorreto {
+            background-color: #f8d7da;
+            color: #842029;
+            border: 1px solid #f5c2c7;
+        }
+
+        /* ==========================================================
+           CONTATOS DE EMERGÊNCIA
+           ========================================================== */
+        .grade-emergencia {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cartao-emergencia {
+            background-color: var(--cor-cartao);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            border: 2px dashed var(--cor-destaque);
+        }
+
+        .numero-telefone {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--cor-destaque);
+            margin: 10px 0;
+            display: block;
+        }
+
+        /* ==========================================================
+           RODAPÉ
+           ========================================================== */
+        .rodape-principal {
+            background-color: var(--cor-primaria);
+            color: #ffffff;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        body.modo-alto-contraste .rodape-principal {
+            background-color: #000000;
+            border-top: 3px solid var(--cor-primaria);
+        }
+
+        /* Ajuste para telas pequenas */
+        @media (max-width: 768px) {
+            .cabecalho-conteudo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .banner-boas-vindas h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR DE ACESSIBILIDADE -->
+    <div class="barra-acessibilidade">
+        <div class="container">
+            <span><strong>Acessibilidade para Leitura:</strong></span>
+            <div class="controles-acessibilidade">
+                <button class="botao-acessibilidade" onclick="alterarTamanhoFonte(2)" title="Aumentar Letra">
+                    A+ (Aumentar)
+                </button>
+                <button class="botao-acessibilidade" onclick="alterarTamanhoFonte(-2)" title="Diminuir Letra">
+                    A- (Diminuir)
+                </button>
+                <button class="botao-acessibilidade" onclick="alternarAltoContraste()" title="Modo Alto Contraste">
+                    ☯ Alto Contraste
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO COM LOGO E NAVEGAÇÃO -->
+    <header class="cabecalho-principal">
+        <div class="container cabecalho-conteudo">
+            <div class="logotipo">
+                🛡️ <span>Sênior Seguro</span>
+            </div>
+            <nav class="menu-navegacao" aria-label="Navegação Principal">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#golpes">Alertas de Golpes</a></li>
+                    <li><a href="#direitos">Seus Direitos</a></li>
+                    <li><a href="#dia-a-dia">Dia a Dia</a></li>
+                    <li><a href="#testar">Testar Conhecimentos</a></li>
+                    <li><a href="#emergencia">Ajuda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- SEÇÃO INICIAL COM BANNER E APRESENTAÇÃO -->
+        <section id="inicio" class="banner-boas-vindas">
+            <h1>Navegue na Internet com Segurança e Confiança</h1>
+            <p>
+                Este espaço foi desenvolvido especialmente para você. Aprenda a reconhecer golpes diários, 
+                conheça seus direitos no ambiente digital e saiba como se proteger com praticidade.
+            </p>
+            <div class="botoes-acao">
+                <a href="#golpes" class="botao-destaque">Ver Principais Golpes</a>
+                <a href="#direitos" class="botao-destaque" style="background-color: #ffffff; color: #000;">Conhecer Meus Direitos</a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 1: ALERTAS SOBRE GOLPES FREQUENTES -->
+        <section id="golpes" class="secao-conteudo">
+            <h2 class="titulo-secao">⚠️ Cuidado com os Golpes Mais Frequentes</h2>
+            <div class="grade-cartoes">
+
+                <article class="cartao cartao-alerta">
+                    <div>
+                        <span class="tag-alerta">PERIGO NO WHATSAPP</span>
+                        <h3>Golpe do Falso Familiar</h3>
+                        <p>
+                            Alguém envia mensagem de um número desconhecido usando a foto de um filho ou neto, dizendo que mudou de número e precisa de dinheiro urgente via Pix.
+                        </p>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <strong>Como evitar:</strong> Nunca envie dinheiro imediatamente. Ligue para o número antigo do parente ou confirme a história por chamada de voz.
+                    </div>
+                </article>
+
+                <article class="cartao cartao-alerta">
+                    <div>
+                        <span class="tag-alerta">LIGAÇÃO FALSA</span>
+                        <h3>Falso Funcionário do Banco</h3>
+                        <p>
+                            Você recebe uma ligação dizendo que sua conta foi invadida ou que há uma compra suspeita. Eles pedem para você digitar sua senha ou fazer uma transferência de segurança.
+                        </p>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <strong>Como evitar:</strong> Desligue a chamada. Os bancos NUNCA ligam pedindo senhas, transferências ou instalação de aplicativos.
+                    </div>
+                </article>
+
+                <article class="cartao cartao-alerta">
+                    <div>
+                        <span class="tag-alerta">MENSAGEM DE TEXTO</span>
+                        <h3>Links Falsos de Prêmios ou Entregas</h3>
+                        <p>
+                            Mensagens avisando sobre um prêmio, compra pendente nas Lojas Americanas/Correios ou recadastro do INSS com um link para clicar.
+                        </p>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <strong>Como evitar:</strong> Não clique em links recebidos por SMS ou e-mail de remetentes desconhecidos. Apague a mensagem.
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: DIREITOS E LEIS NO AMBIENTE DIGITAL -->
+        <section id="direitos" class="secao-conteudo">
+            <h2 class="titulo-secao">⚖️ Seus Direitos no Ambiente Digital</h2>
+            <p style="margin-bottom: 20px;">A lei protege a pessoa idosa dentro e fora da internet. Conheça as garantias legais:</p>
+
+            <div class="grade-cartoes">
+
+                <article class="cartao cartao-direito">
+                    <h3>Proteção contra Empréstimos Não Solicitados</h3>
+                    <p>
+                        A Lei do Superendividamento e as regras do INSS proíbem o assédio comercial para contratação de empréstimos consignados sem o consentimento explícito e consciente do idoso.
+                    </p>
+                </article>
+
+                <article class="cartao cartao-direito">
+                    <h3>LGPD (Privacidade de Dados)</h3>
+                    <p>
+                        A Lei Geral de Proteção de Dados garante que suas informações pessoais (CPF, dados bancários, endereço) não podem ser vendidas ou compartilhadas sem sua autorização expressa.
+                    </p>
+                </article>
+
+                <article class="cartao cartao-direito">
+                    <h3>Direito à Acessibilidade Bancária</h3>
+                    <p>
+                        Bancos e serviços online são obrigados por lei a oferecer canais com atendimento adaptado, linguagem clara e botões visíveis para pessoas idosas.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: SEGURANÇA NO DIA A DIA (CHECKLIST PRACTICO) -->
+        <section id="dia-a-dia" class="secao-conteudo">
+            <h2 class="titulo-secao">✅ Checklist de Segurança para o Dia a Dia</h2>
+            <p style="margin-bottom: 25px;">Marque as ações que você já pratica diariamente para manter seus dispositivos protegidos:</p>
+
+            <div class="caixa-checklist">
+
+                <div class="item-checklist">
+                    <input type="checkbox" id="chk1">
+                    <div class="texto-checklist">
+                        <label for="chk1"><strong>Uso senhas fortes e diferentes:</strong> Evito colocar datas de nascimento, nomes ou sequências como '123456'.</label>
+                    </div>
+                </div>
+
+                <div class="item-checklist">
+                    <input type="checkbox" id="chk2">
+                    <div class="texto-checklist">
+                        <label for="chk2"><strong>Ativei a confirmação em duas etapas:</strong> No WhatsApp e no e-mail para impedir que invasores acessem minha conta.</label>
+                    </div>
+                </div>
+
+                <div class="item-checklist">
+                    <input type="checkbox" id="chk3">
+                    <div class="texto-checklist">
+                        <label for="chk3"><strong>Não anoto senhas atrás do celular:</strong> Mantenho minhas senhas guardadas em um caderno seguro dentro de casa.</label>
+                    </div>
+                </div>
+
+                <div class="item-checklist">
+                    <input type="checkbox" id="chk4">
+                    <div class="texto-checklist">
+                        <label for="chk4"><strong>Converso com minha família:</strong> Quando estou em dúvida sobre uma mensagem, pergunto a alguém de confiança antes de clicar.</label>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: QUIZ DE CONHECIMENTO -->
+        <section id="testar" class="secao-conteudo">
+            <h2 class="titulo-secao">💡 Teste Seus Conhecimentos</h2>
+            <div class="caixa-quiz">
+                <p style="font-size: 1.2rem; margin-bottom: 15px;"><strong>Situação:</strong> Você recebe uma mensagem no WhatsApp do seu banco dizendo que sua senha expirou e solicita que você clique em um link para atualizar. O que você faz?</p>
+                
+                <button class="opcao-quiz" onclick="verificarResposta(false)">
+                    A) Clico no link imediatamente para não ficar sem acesso ao banco.
+                </button>
+                
+                <button class="opcao-quiz" onclick="verificarResposta(true)">
+                    B) Ignoro a mensagem e não clico. Se tiver dúvidas, ligo no número que está no verso do meu cartão bancário.
+                </button>
+
+                <button class="opcao-quiz" onclick="verificarResposta(false)">
+                    C) Envio minha senha digitada na conversa para que o atendente resolva.
+                </button>
+
+                <div id="mensagem-quiz" class="mensagem-resultado"></div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: TELEFONES ÚTEIS E EMERGÊNCIA -->
+        <section id="emergencia" class="secao-conteudo">
+            <h2 class="titulo-secao">📞 Onde Buscar Ajuda ou Denunciar</h2>
+            <div class="grade-emergencia">
+
+                <div class="cartao-emergencia">
+                    <h3>Disque Direitos Humanos</h3>
+                    <span class="numero-telefone">100</span>
+                    <p>Para denunciar violações de direitos e violência financeira contra idosos.</p>
+                </div>
+
+                <div class="cartao-emergencia">
+                    <h3>Polícia Militar</h3>
+                    <span class="numero-telefone">190</span>
+                    <p>Em caso de emergência ou crimes em andamento.</p>
+                </div>
+
+                <div class="cartao-emergencia">
+                    <h3>PROCON / Defensoria</h3>
+                    <span class="numero-telefone">151</span>
+                    <p>Para dúvidas sobre empréstimos abusivos ou cobranças indevidas.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer class="rodape-principal">
+        <div class="container">
+            <p><strong>Sênior Seguro</strong> - Promovendo a Inclusão e Proteção Digital.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Desenvolvido com foco em acessibilidade e facilidade de leitura para idosos.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================
+         CÓDIGO JAVASCRIPT DE INTERATIVIDADE E ACESSIBILIDADE
+         ========================================================== -->
+    <script>
+        // Variável para controle do tamanho atual da fonte
+        let tamanhoFonteAtual = 18;
+
+        /**
+         * Altera o tamanho global da fonte da página.
+         * @param {number} variacao - Valor a ser somado ou subtraído (ex: 2 ou -2)
+         */
+        function alterarTamanhoFonte(variacao) {
+            tamanhoFonteAtual += variacao;
+            
+            // Limites mínimo e máximo para garantir boa visualização
+            if (tamanhoFonteAtual < 14) tamanhoFonteAtual = 14;
+            if (tamanhoFonteAtual > 26) tamanhoFonteAtual = 26;
+
+            document.documentElement.style.setProperty('--tamanho-fonte', tamanhoFonteAtual + 'px');
+        }
+
+        /**
+         * Alterna a classe de alto contraste no corpo da página.
+         */
+        function alternarAltoContraste() {
+            document.body.classList.toggle('modo-alto-contraste');
+        }
+
+        /**
+         * Verifica a resposta selecionada no Quiz Interativo.
+         * @param {boolean} ehCorreta - Indica se a alternativa clicada é a correta.
+         */
+        function verificarResposta(ehCorreta) {
+            const caixaMensagem = document.getElementById('mensagem-quiz');
+            caixaMensagem.style.display = 'block';
+
+            if (ehCorreta) {
+                caixaMensagem.className = 'mensagem-resultado resultado-correto';
+                caixaMensagem.innerHTML = '✨ Parabéns! Resposta Correta. Os bancos nunca enviam links para atualização de senha via WhatsApp ou SMS. Sempre busque o atendimento oficial!';
+            } else {
+                caixaMensagem.className = 'mensagem-resultado resultado-incorreto';
+                caixaMensagem.innerHTML = '❌ Cuidado! Essa ação é perigosa. Nunca clique em links nem forneça senhas por mensagem. A atitude correta é ignorar e ligar para o banco no número do cartão.';
+            }
+        }
+    </script>
+</body>
+</html>
